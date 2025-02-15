@@ -144,7 +144,7 @@ h1 {
 .question-btns {
   display: flex;
   flex-direction: column-reverse;
-  margin: 20px;
+  margin: 14px;
 }
 
 .question-btns button {
@@ -307,5 +307,23 @@ header {
 
 .query-pad {
   margin-bottom: 2rem;
+}
+
+.form-label {
+  font-family: 'Fredoka One', serif;
+}
+
+.submit-btn {
+  background-color: #94D82D;
+  border-style: none;
+  font-family: 'Fredoka One', serif;
+  color: rgb(0,0,0);
+}
+
+.mod-login-btn {
+  background: #94D82D;
+  border-style: none;
+  font-family: 'Fredoka One', serif;
+  color: rgb(0,0,0);
 }
 
