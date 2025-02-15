@@ -293,7 +293,7 @@ header {
   }
 }
 
-@media (max-width: 350px) {
+@media (min-width: 250px) and (max-width: 560px) {
   .mod-name input, .cod-name input, .mod-login-btn {
     width: 70vw;
   }
