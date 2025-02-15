@@ -134,12 +134,6 @@ h1 {
   }
 }
 
-@media (max-width: 560px) {
-  .moderator-form {
-    width: 330px;
-  }
-}
-
 .continue-btns {
   display: flex;
   flex-direction: column-reverse;
@@ -160,12 +154,6 @@ h1 {
 @media (max-width: 560px) {
   .form-continue {
     width: 300px;
-  }
-}
-
-@media (max-width: 560px) {
-  .continue-form {
-    width: 330px;
   }
 }
 
@@ -283,6 +271,7 @@ header {
 @media (min-width: 250px) and (max-width: 560px) {
   .name-group {
     width: 70vw;
+    align-items: center;
   }
 }
 
@@ -298,7 +287,7 @@ header {
   }
 }
 
-@media (max-width: 350px) {
+@media (min-width: 250px) and (max-width: 560px) {
   .continue-form {
     width: 80vw;
   }
@@ -310,7 +299,7 @@ header {
   }
 }
 
-@media (max-width: 350px) {
+@media (min-width: 250px) and (max-width: 560px) {
   .moderator-form {
     width: 80vw;
   }
