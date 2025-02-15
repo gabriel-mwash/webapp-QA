@@ -55,7 +55,7 @@ moderator-form {
   display: flex;
   align-items: center;
   width: 500px;
-  min-height: 78vh;
+  min-height: 75vh;
   margin: 20px auto 30px;
   border-radius: 10px;
   flex-direction: column;
