@@ -55,7 +55,7 @@ moderator-form {
   display: flex;
   align-items: center;
   width: 500px;
-  min-height: 560px;
+  min-height: 80vh;
   margin: 20px auto 30px;
   border-radius: 10px;
   flex-direction: column;
@@ -66,7 +66,7 @@ moderator-form {
 
 .question-area {
   width: 400px;
-  height: 200px;
+  height: 25vh;
   margin-bottom: 15px;
 }
 
@@ -140,18 +140,6 @@ h1 {
   }
 }
 
-@media (max-width: 560px) {
-  .question-form {
-    width: 330px;
-  }
-}
-
-@media (max-width: 560px) {
-  .question-area {
-    width: 270px;
-  }
-}
-
 .continue-btns {
   display: flex;
   flex-direction: column-reverse;
@@ -202,11 +190,12 @@ h1 {
   background: #ffdf00;
   border-style: none;
   font-family: 'Fredoka One', serif;
-  width: 248px;
+  width: 34vh;
+  margin-top: 45px;
 }
 
 .mod-name {
-  margin-top: 93px;
+  margin-top: 35px;
 }
 
 .question-btns a {
@@ -218,7 +207,7 @@ h1 {
 }
 
 header {
-  height: 15vh;
+  height: 14vh;
   background: #212529;
   text-align: center;
   margin-bottom: 30px;
@@ -231,12 +220,13 @@ header {
   justify-content: center;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) and (min-width: 270px) {
   .query-section {
     /*background: blue;*/
     max-width: 60vh;
     margin: auto;
     min-height: 20vh;
+    width: 85vw;
   }
 }
 
@@ -257,7 +247,7 @@ header {
 
 @media (min-width: 300px) {
   .name-query > div span {
-    margin: 10px;
+    /*margin: 10px;*/
   }
 }
 
@@ -265,6 +255,8 @@ header {
   .name-query {
     display: flex;
     flex-direction: column;
+    margin: 10px;
+    align-items: center;
   }
 }
 
@@ -288,12 +280,43 @@ header {
   margin-right: 3px;
 }
 
-body {
-  background: url("../../assets/img/Frame%2016%20(2).svg") center / auto repeat, #ffffff;
+@media (min-width: 250px) and (max-width: 560px) {
+  .name-group {
+    width: 70vw;
+  }
 }
 
-img {
-  height: 100px;
-  width: 100px;
+@media (min-width: 250px) and (max-width: 560px) {
+  .question-area {
+    width: 65vw;
+  }
+}
+
+@media (min-width: 250px) and (max-width: 560px) {
+  .question-form {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 350px) {
+  .continue-form {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 350px) {
+  .mod-name input, .cod-name input, .mod-login-btn {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 350px) {
+  .moderator-form {
+    width: 80vw;
+  }
+}
+
+.query-pad {
+  margin-bottom: 2rem;
 }
 
