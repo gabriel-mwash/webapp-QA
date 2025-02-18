@@ -13,15 +13,32 @@
 </head>
 
 <body style="background: url(&quot;assets/img/Frame%2016%20(2).svg&quot;) center / auto repeat;">
-    <h1 class="text-center">Q and A Session</h1>
-    <form class="pulse animated moderator-form">
-        <div class="text-center"><img width="100" height="100" src="assets/img/AYLF-LOGO-NB-02.webp"></div>
-        <div class="text-center mod-name"><label class="form-label mod-label">moderator</label><input class="form-control name-campus-fields pe-0" type="text" placeholder=""></div>
-        <div class="cod-name"><label class="form-label cod-label">code&nbsp;</label><input class="form-control name-campus-fields pe-0 cod-input" type="text" placeholder=""></div><a class="btn btn-lg active fw-bolder mod-login-btn" role="button" data-bss-hover-animate="tada" style="background: #ffdf00;" href="questions.php">&nbsp;login</a>
-        <p style="font-family: 'Fugaz One', serif;color: #ffdf00;text-align: center;padding: 10px;margin-top: 3rem;">Nurturing A New Breed Of Leaders in Africa</p>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+  <h1 class="text-center">Q and A Session</h1>
+  <form class="pulse animated moderator-form" action="mod_submit.php" method="post">
+      <div class="text-center">
+        <img width="100" height="100" src="assets/img/AYLF-LOGO-NB-02.webp">
+      </div>
+      <div class="text-center mod-name">
+        <label class="form-label mod-label" >moderator</label>
+        <input class="form-control name-campus-fields pe-0" 
+          type="text" name="moderator_name">
+      </div>
+      <div class="cod-name">
+        <label class="form-label cod-label" >code&nbsp;</label>
+        <input class="form-control name-campus-fields pe-0 cod-input" 
+          name="code" type="text" >
+      </div>
+      <a class="btn btn-lg active fw-bolder mod-login-btn" role="button" 
+        onclick="document.querySelector('.moderator-form').submit(); return false;"
+        data-bss-hover-animate="tada" style="background: #ffdf00;" 
+        >login
+      </a>
+      <p style="font-family: 'Fugaz One', serif;color: #ffdf00;
+        text-align: center;padding: 10px;margin-top: 3rem;"
+        >Nurturing A New Breed Of Leaders in Africa
+      </p>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/bs-init.js"></script>
 </body>
-
 </html>

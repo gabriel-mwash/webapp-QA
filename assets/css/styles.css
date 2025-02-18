@@ -1,14 +1,6 @@
-continue-form {
+.body-questions {
   display: flex;
-  align-items: center;
-  width: 500px;
-  min-height: 560px;
-  margin: 20px auto 30px;
-  border-radius: 10px;
   flex-direction: column;
-  justify-content: center;
-  opacity: 0.94;
-  background-color: #ffdf00;
 }
 
 .continue-form {
@@ -25,18 +17,6 @@ continue-form {
   text-align: center;
 }
 
-moderator-form {
-  display: flex;
-  align-items: center;
-  width: 500px;
-  min-height: 560px;
-  margin: 20px auto 30px;
-  border-radius: 10px;
-  flex-direction: column;
-  justify-content: center;
-  opacity: 0.94;
-  background-color: #ffdf00;
-}
 
 .moderator-form {
   display: flex;
@@ -167,9 +147,6 @@ h1 {
   margin-right: 20px;
 }
 
-.cod-input {
-}
-
 .cod-label {
   margin-right: 61px;
 }
@@ -194,11 +171,12 @@ h1 {
   margin: 10px;
 }
 
-header {
-  height: 14vh;
+nav {
+  width: 100%;
+  position: sticky;
   background: #212529;
   text-align: center;
-  margin-bottom: 30px;
+  opacity:0.92;
 }
 
 .query-section {
@@ -309,6 +287,35 @@ header {
   margin-bottom: 2rem;
 }
 
+.footer, #refresh{
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 9px;
+  
+}
+
+#LoadMore, .footer a, #refresh{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #94D82D;
+  margin: 4px;
+  text-decoration: none;
+  color: black;
+  font-family: "Fredoka One", serif;
+}
+
+
+#LoadMore:hover, .footer a:hover, #refresh:hover{
+  background: linear-gradient(45deg, #2575fc);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px 5px rgba(255, 223, 0, 0.8);
+}
+
 .form-label {
   font-family: 'Fredoka One', serif;
 }
@@ -327,3 +334,34 @@ header {
   color: rgb(0,0,0);
 }
 
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

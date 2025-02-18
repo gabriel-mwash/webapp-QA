@@ -2,97 +2,28 @@
 <html data-bs-theme="light" lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Q_and_A_webApp</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fugaz+One&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Q_and_A_webApp</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fugaz+One&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body style="background: url(&quot;assets/img/Frame%2016%20(2).svg&quot;) center / auto repeat;">
-    <header class="d-block" style="position: relative;width: 100vw;height: auto;"><img src="assets/img/AYLF-LOGO-NB-02.webp" style="height: 100px;width: 100px;"></header>
-    <div class="container query-pad">
-        <div class="row">
-            <div class="col-md-12 d-flex query-section">
-                <div class="query-container" style="margin: 0px;">
-                    <p class="query-text" style="font-family: 'Fredoka One', serif;font-size: 25px;text-align: center;margin: 0.5rem 0 0.5rem 0;">How can the youth engage members of parliament on issues regarding policies affecting public finance ?&nbsp;</p>
-                </div>
-                <div class="flex-wrap name-query" style="margin-bottom: 10px;">
-                    <div class="text-center name-qw" style="width: fit-content;"><span style="border-radius: 5px;margin-right: 3px;margin-left: 3px;">Gabriel</span></div>
-                    <div class="text-center" style="background: #94d82d;border-radius: 5px;margin-left: 5px;padding: 3px;"><span class="camp-qw">The Cooperative University of Kenya</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container query-pad">
-        <div class="row">
-            <div class="col-md-12 d-flex query-section">
-                <div class="query-container" style="margin: 0px;">
-                    <p class="query-text" style="font-family: 'Fredoka One', serif;font-size: 25px;text-align: center;margin: 0.5rem 0 0.5rem 0;">How can the youth engage members of parliament on issues regarding policies affecting public finance ?&nbsp;</p>
-                </div>
-                <div class="flex-wrap name-query" style="margin-bottom: 10px;">
-                    <div class="text-center name-qw" style="width: fit-content;"><span style="border-radius: 5px;margin-right: 3px;margin-left: 3px;">Gabriel</span></div>
-                    <div class="text-center" style="background: #94d82d;border-radius: 5px;margin-left: 5px;padding: 3px;"><span class="camp-qw">The Cooperative University of Kenya</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container query-pad">
-        <div class="row">
-            <div class="col-md-12 d-flex query-section">
-                <div class="query-container" style="margin: 0px;">
-                    <p class="query-text" style="font-family: 'Fredoka One', serif;font-size: 25px;text-align: center;margin: 0.5rem 0 0.5rem 0;">How can the youth engage members of parliament on issues regarding policies affecting public finance ?&nbsp;</p>
-                </div>
-                <div class="flex-wrap name-query" style="margin-bottom: 10px;">
-                    <div class="text-center name-qw" style="width: fit-content;"><span style="border-radius: 5px;margin-right: 3px;margin-left: 3px;">Gabriel</span></div>
-                    <div class="text-center" style="background: #94d82d;border-radius: 5px;margin-left: 5px;padding: 3px;"><span class="camp-qw">The Cooperative University of Kenya</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container query-pad">
-        <div class="row">
-            <div class="col-md-12 d-flex query-section">
-                <div class="query-container" style="margin: 0px;">
-                    <p class="query-text" style="font-family: 'Fredoka One', serif;font-size: 25px;text-align: center;margin: 0.5rem 0 0.5rem 0;">How can the youth engage members of parliament on issues regarding policies affecting public finance ?&nbsp;</p>
-                </div>
-                <div class="flex-wrap name-query" style="margin-bottom: 10px;">
-                    <div class="text-center name-qw" style="width: fit-content;"><span style="border-radius: 5px;margin-right: 3px;margin-left: 3px;">Gabriel</span></div>
-                    <div class="text-center" style="background: #94d82d;border-radius: 5px;margin-left: 5px;padding: 3px;"><span class="camp-qw">The Cooperative University of Kenya</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container query-pad">
-        <div class="row">
-            <div class="col-md-12 d-flex query-section">
-                <div class="query-container" style="margin: 0px;">
-                    <p class="query-text" style="font-family: 'Fredoka One', serif;font-size: 25px;text-align: center;margin: 0.5rem 0 0.5rem 0;">How can the youth engage members of parliament on issues regarding policies affecting public finance ?&nbsp;</p>
-                </div>
-                <div class="flex-wrap name-query" style="margin-bottom: 10px;">
-                    <div class="text-center name-qw" style="width: fit-content;"><span style="border-radius: 5px;margin-right: 3px;margin-left: 3px;">Gabriel</span></div>
-                    <div class="text-center" style="background: #94d82d;border-radius: 5px;margin-left: 5px;padding: 3px;"><span class="camp-qw">The Cooperative University of Kenya</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container query-pad">
-        <div class="row">
-            <div class="col-md-12 d-flex query-section">
-                <div class="query-container" style="margin: 0px;">
-                    <p class="query-text" style="font-family: 'Fredoka One', serif;font-size: 25px;text-align: center;margin: 0.5rem 0 0.5rem 0;">How can the youth engage members of parliament on issues regarding policies affecting public finance ?&nbsp;</p>
-                </div>
-                <div class="flex-wrap name-query" style="margin-bottom: 10px;">
-                    <div class="text-center name-qw" style="width: fit-content;"><span style="border-radius: 5px;margin-right: 3px;margin-left: 3px;">Gabriel</span></div>
-                    <div class="text-center" style="background: #94d82d;border-radius: 5px;margin-left: 5px;padding: 3px;"><span class="camp-qw">The Cooperative University of Kenya</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+<body class="body-questions" style="background: url(&quot;assets/img/Frame%2016%20(2).svg&quot;) center / auto repeat;">
+  <nav id="top" class="d-block sticky-top">
+    <img src="assets/img/AYLF-LOGO-NB-02.webp" style="height: 100px;width: 100px;">
+  </nav>
+  <a id="refresh" href="questions.php">Refresh</a>
+  <div class="query-container"></div>
+  <div class="footer">
+    <button id="LoadMore">Load more </button>
+    <a href="#refresh" >to top of page</a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/bs-init.js"></script>
+  <script src="assets/js/scripts.js"></script>
 </body>
 
 </html>

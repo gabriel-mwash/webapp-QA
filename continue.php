@@ -1,3 +1,7 @@
+<?php
+include "submit_question.php"
+?>
+
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
@@ -25,3 +29,4 @@
 </body>
 
 </html>
+
