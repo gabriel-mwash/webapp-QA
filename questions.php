@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["moderator_name"]) || $_SESSION["moderator_logged_in"] !== true) {
+  header("Location:moderator.php");
+  exit(); 
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
@@ -19,7 +32,7 @@
   <div class="query-container"></div>
   <div class="footer">
     <button id="LoadMore">Load more </button>
-    <a href="#refresh" >to top of page</a>
+    <a id="oldLink" href="#refresh" style="/*display: none;*/">to top of page</a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/bs-init.js"></script>
@@ -27,3 +40,4 @@
 </body>
 
 </html>
+

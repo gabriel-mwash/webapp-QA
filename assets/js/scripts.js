@@ -20,18 +20,14 @@ function fetchQuestions() {
     let container = document.querySelector(".query-container");
     if (data.length === 0 && batch === 0) {
       let noQuestionPad = document.createElement("div");
-      noQuestionPad.classList.add("container", "query-pad", "fade-in");
+      noQuestionPad.classList.add("no-question", "fade-in");
       noQuestionPad.innerHTML = `
-      <div class="row">
-          <div class="col-md-12 d-flex query-section slide-in">
-              <div class="query-container" style="margin: 0px;">
-                  <p class="query-text" style="font-family: 'Fredoka One', 
-                    serif;font-size: 25px;text-align: center;margin: 0.5rem 0 0.5rem 0;"
-                    >NO QUESTIONS YET <br>
-                    NURTURING A NEW BREED OF LEADERS IN AFRICA
-                    </p>
-              </div>
-          </div>
+      <div class="no-question">
+          <p class="query-text" style="font-family: 'Fredoka One', 
+            serif;font-size: 25px;text-align: center;padding: 0.5rem; margin: 0.5rem 0 0.5rem 0;"
+            >NO QUESTIONS YET <br>
+            NURTURING A NEW BREED OF LEADERS <br> IN AFRICA
+            </p>
       </div>
      `;
 
@@ -45,10 +41,9 @@ function fetchQuestions() {
     data.forEach(function(question) {
 
       let queryPad = document.createElement("div");
-      queryPad.classList.add("container", "query-pad");
+      queryPad.classList.add("container", "query-pad", "fade-in");
 
       queryPad.innerHTML = `
-      
       <div class="row">
           <div class="col-md-12 d-flex query-section">
               <div class="query-container" style="margin: 0px;">
@@ -71,6 +66,19 @@ function fetchQuestions() {
       container.appendChild(queryPad);
     });
 
+    /*
+    let topPage = document.createElement("a");
+    let oldLink = document.getElementById("oldLink");
+    topPage.href = "#refresh";
+    topPage.textContent = "to top of page";
+
+    let footer = document.querySelector(".footer");
+
+    footer.replaceChild(topPage, oldLink);
+    */
+
+
+
     if (data.length < 7) {
       document.getElementById("LoadMore").style.display="none";
     }
@@ -83,7 +91,7 @@ function fetchQuestions() {
 
 fetchQuestions();
 
-document.getElementById("LoadMore").addEventListener("click", fetchQuestions)
+document.getElementById("LoadMore" ).addEventListener("click", fetchQuestions);
 
 
 /*

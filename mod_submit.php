@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include("connection.php");
 
 
@@ -26,7 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt = $connection->prepare($sql)) { 
       $stmt->bind_param("s", $moderator_name);
       if ($stmt->execute()) {
-        // echo "name inserted successfully";
+        $_SESSION["moderator_name"] = $moderator_name;
+        echo $_SESSION["moderator_name"];
+        $_SESSION["moderator_logged_in"] = true;
         header("Location:questions.php");
         exit();
       }
@@ -40,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
   else {
+    $_SESSION["error"] = "Invalid code. Please try again. ";
     header("Location:moderator.php");
     exit();
   }

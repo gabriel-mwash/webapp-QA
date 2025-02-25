@@ -1,3 +1,15 @@
+<?php 
+
+session_start();
+
+$error_message = "";
+
+if(isset($_SESSION["error"])) {
+  $error_message = $_SESSION["error"];
+  unset($_SESSION["error"]);
+}
+
+?>
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
@@ -13,6 +25,12 @@
 </head>
 
 <body style="background: url(&quot;assets/img/Frame%2016%20(2).svg&quot;) center / auto repeat;">
+<?php if (!empty($error_message)):?>
+  <script> 
+    alert("<?php echo $error_message ?>");
+  </script>
+<?php endif; ?>
+
   <h1 class="text-center">Q and A Session</h1>
   <form class="pulse animated moderator-form" action="mod_submit.php" method="post">
       <div class="text-center">

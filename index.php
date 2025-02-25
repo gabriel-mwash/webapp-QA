@@ -21,7 +21,7 @@
           <img width="100" height="100" src="assets/img/AYLF-LOGO-NB-02.webp">
         </div>
         <div>
-          <textarea class="form-control question-area" name="question" placeholder="type question here"></textarea>
+          <textarea class="form-control question-area" name="question" required placeholder="type question here" ></textarea>
         </div>
         <label class="form-label row-cols-sm-6">* Not mandatory</label>
         <div class="text-center name-group">
