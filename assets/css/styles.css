@@ -98,11 +98,6 @@ h1 {
   font-family: 'Fredoka One', serif;
 }
 
-@media (min-width: 1200px) {
-  .name-group > input {
-  }
-}
-
 .name-campus-fields {
   margin: 5px;
 }
@@ -167,9 +162,6 @@ h1 {
   margin-right: 20px;
 }
 
-.cod-input {
-}
-
 .cod-label {
   margin-right: 61px;
 }
@@ -194,11 +186,10 @@ h1 {
   margin: 10px;
 }
 
-header {
-  height: 14vh;
-  background: #212529;
+.navbar {
+  height: 80px;
+  color: black;
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .query-section {
