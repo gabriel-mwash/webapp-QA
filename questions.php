@@ -1,4 +1,4 @@
-?php
+<?php
 
 session_start();
 
@@ -11,7 +11,8 @@ if (!isset($_SESSION["moderator_name"]) || $_SESSION["moderator_logged_in"] !== 
 
 
 
-<!DOCTYPE html>
+<t
+DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
 <head>
@@ -47,11 +48,13 @@ if (!isset($_SESSION["moderator_name"]) || $_SESSION["moderator_logged_in"] !== 
 
 
   <!-- <nav id="top" class="d-block sticky-top"> -->
-  <a id="refresh" href="questions.php">Refresh</a>
+  <div class="refresh">
+    <a class="btn btn-primary btn-lg fw-bolder check-out-btn" role="button" id="refresh" href="questions.php">Refresh</a>
+  </div>
   <div class="query-container"></div>
   <div class="footer">
-    <button id="LoadMore">Load more </button>
-    <a id="oldLink" href="#refresh" style="/*display: none;*/">to top of page</a>
+    <button class="btn btn-primary btn-lg fw-bolder check-out-btn" id="LoadMore">Load more</button>
+    <a class="btn btn-primary btn-lg fw-bolder check-out-btn" role="button" id="oldLink" href="#refresh" style="/*display: none;*/">to top of page</a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/bs-init.js"></script>
