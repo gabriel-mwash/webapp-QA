@@ -163,11 +163,20 @@ h1 {
   margin: 10px;
 }
 
-.navbar {
-  height: 80px;
-  color: black;
+.no-question {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  margin:  auto; 
+  border-radius: 10px;
+  flex-direction: column;
+  /*justify-content: center;*/
+  opacity: 0.94;
+  background-color: #94D82D;
   text-align: center;
+  
 }
+
 
 .query-section {
   background: #ffdf00;
@@ -254,6 +263,9 @@ h1 {
   .continue-form {
     width: 80vw;
   }
+  .no-question {
+    width: 80vw;
+  }
 }
 
 @media (min-width: 250px) and (max-width: 560px) {
@@ -288,6 +300,10 @@ h1 {
   border-style: none;
   font-family: 'Fredoka One', serif;
   color: rgb(0,0,0);
+}
+
+.refresh {
+  margin-top: 5rem;
 }
 
 .footer, .refresh{

@@ -22,13 +22,10 @@ function fetchQuestions() {
       let noQuestionPad = document.createElement("div");
       noQuestionPad.classList.add("no-question", "fade-in");
       noQuestionPad.innerHTML = `
-      <div class="no-question">
           <p class="query-text" style="font-family: 'Fredoka One', 
             serif;font-size: 25px;text-align: center;padding: 0.5rem; margin: 0.5rem 0 0.5rem 0;"
             >NO QUESTIONS YET <br>
-            NURTURING A NEW BREED OF LEADERS <br> IN AFRICA
             </p>
-      </div>
      `;
 
       container.appendChild(noQuestionPad);

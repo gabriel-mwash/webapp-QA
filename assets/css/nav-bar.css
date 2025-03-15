@@ -1,7 +1,7 @@
 .navigation-clean-button {
   background: #fff;
-  padding-top: .75rem;
-  padding-bottom: .75rem;
+  /*padding-top: .75rem;*/
+  /*padding-bottom: .75rem;*/
   color: #333;
   border-radius: 0;
   box-shadow: none;
@@ -16,6 +16,13 @@
   }
 }
 
+.navbar {
+  position: fixed;
+  width: 100%;
+  margin-bottom: 4rem;
+  opacity: 0.93;
+}
+
 .navigation-clean-button .navbar-brand {
   font-weight: bold;
   color: inherit;
@@ -25,16 +32,13 @@
   color: #222;
 }
 
-.navigation-clean-button .navbar-toggler {
-  border-color: #ddd;
+.navbar-toggler:hover, .navbar-toggler:focus {
+  color: gold;
+  background-color: forestgreen;
 }
 
-.navigation-clean-button .navbar-toggler:hover, .navigation-clean-button .navbar-toggler:focus {
-  background: none;
-}
-
-.navigation-clean-button .navbar-toggler {
-  color: #888;
+.navbar-toggler {
+  border-color: gold;
 }
 
 .navigation-clean-button .navbar-collapse, .navigation-clean-button .form-inline {
@@ -66,4 +70,34 @@
   color: #37434d !important;
   background-color: transparent;
 }
+
+.navbar-toggler {
+  background-color: #5c6f5c;
+}
+
+@media (max-width: 767px) {
+  .navbar-nav {
+    background-color: grey;
+    align-items: end;
+    opacity: 0.8;
+  }
+}
+
+.nav-item:hover {
+  /*color: #228b22;*/
+  display: inline-block;
+  text-decoration: underline;
+  text-shadow: 2px 2px 5px rgba(11, 102, 35, 0.5), -2px -2px 5px rgba(255, 215, 0, 0.5);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+
+
+.navigation-clean-button {
+  height: 80px;
+  color: #ffffff;
+  background: #212529;
+}
+
 
