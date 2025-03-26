@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Q_and_A_webApp</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fugaz+One&amp;display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
 
 <body style="background: url(&quot;assets/img/Frame%2016%20(2).svg&quot;) center / auto repeat, #ffffff;">
+
+<?php require "./nav-bar.php"; ?>
     <div>
         <h1 class="text-center">Q and A Session</h1>
     </div>
@@ -30,19 +22,32 @@
         </div>
         <div class="question-btns">
           <a class="btn btn-primary btn-lg active fw-bolder mod-login-btn" role="button"
-            data-bss-hover-animate="tada"  data-bs-target="moderator.php" 
+            data-bss-hover-animate="pulse"  data-bs-target="moderator.php" 
             href="moderator.php" style="background: #94d82d;color: rgb(3,1,1);">moderator login</a>
           <a class="btn btn-primary btn-lg active fw-bolder submit-btn" role="button" 
-            data-bss-hover-animate="tada" type="submit"
-          onclick="document.querySelector('.question-form').submit(); return false;"
+            data-bss-hover-animate="pulse" type="submit"
             style="background: #94d82d;color: rgb(0,0,0);">submit
-            
           </a>
             
         </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+    <script>
+      document.querySelector(".submit-btn").addEventListener("click", function (e) {
+        let message = document.querySelector(".question-area").value.trim();
+        let minQuestLength = 20;
+        if (message .length < minQuestLength) {
+          alert("please enter a valid message");
+          e.preventDefault();
+        }
+        else {
+          document.querySelector(".question-form").submit();
+          document.querySelector(".question-area").value = "";
+        }
+      }
+      );
+    </script>
 </body>
 
 <html>

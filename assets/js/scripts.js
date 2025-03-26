@@ -77,3 +77,27 @@ fetchQuestions();
 
 document.getElementById("LoadMore" ).addEventListener("click", fetchQuestions);
 
+document.addEventListener("DOMContentLoaded", function () {
+  let clearBtn = document.getElementById("clear-questions");
+  if (clearBtn) {
+    clearBtn.addEventListener("click", function(event) { 
+      event.preventDefault();
+      if (confirm("Are you sure you want to clear all questions? This cannot be undone!")) {
+        fetch("clear-questions.php", {
+          method: "POST",
+        })
+        .then(response => response.text())
+        .then(data => {
+          alert(data);
+          location.reload();
+        })
+        .catch(error => console.error("Error: ", error));
+      }
+    });
+  }
+});
+  
+
+
+
+

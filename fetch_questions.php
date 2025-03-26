@@ -8,7 +8,7 @@ include("connection.php");
 $batch = isset($_GET["batch"]) ? intval($_GET["batch"]) : 0;
 $offset = $batch * 7;
 
-$sql = "SELECT question, name, institute FROM questions ORDER BY question_id ASC LIMIT 7 OFFSET $offset";
+$sql = "SELECT question, name, institute FROM questions ORDER BY RAND() LIMIT 7 OFFSET $offset";
 
 $result = $connection->query($sql);
 

@@ -40,8 +40,8 @@
                 <i class="fa fa-star-o"></i>&nbsp;VOTE STATS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " style="color:#ffffff;" href="#">
-                <i class="fa fa-sign-in"></i>&nbsp;AYLF-PROGRAMS</a>
+                <a class="nav-link" id="clear-questions" style="color:#ffffff;" href="#">
+                <i class="fa fa-sign-in"></i>&nbsp;CLEAR-QUESTIONS</a>
               </li>
           </ul>
       </div>

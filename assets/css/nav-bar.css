@@ -18,6 +18,7 @@
 
 .navbar {
   position: fixed;
+  height: 25vh;
   width: 100%;
   margin-bottom: 4rem;
   opacity: 0.93;
@@ -80,11 +81,12 @@
     background-color: grey;
     align-items: end;
     opacity: 0.8;
+    border-radius: 4px;
+    margin: 0px ; padding: 0px;
   }
 }
 
 .nav-item:hover {
-  /*color: #228b22;*/
   display: inline-block;
   text-decoration: underline;
   text-shadow: 2px 2px 5px rgba(11, 102, 35, 0.5), -2px -2px 5px rgba(255, 215, 0, 0.5);
