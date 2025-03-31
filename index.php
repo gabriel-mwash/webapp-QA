@@ -38,7 +38,7 @@
         let message = document.querySelector(".question-area").value.trim();
         let minQuestLength = 20;
         if (message .length < minQuestLength) {
-          alert("please enter a valid message");
+          alert("message too short or invalid message");
           e.preventDefault();
         }
         else {
