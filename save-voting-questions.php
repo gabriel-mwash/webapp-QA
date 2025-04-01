@@ -26,7 +26,8 @@ foreach ($data["questions"] as $question) {
   
   if ($question["question_type"] !== "Open") {
     foreach ($question["options"] as $option) {
-      $stmtOption = $connection->prepare("INSERT INTO votingOptions (query_id, option_text) VALUES (?, ?)");
+      $stmtOption = $connection->prepare
+        ("INSERT INTO votingOptions (query_id, option_text) VALUES (?, ?)");
       $stmtOption->bind_param("is", $queryId, $option);
       $stmtOption->execute();
     }

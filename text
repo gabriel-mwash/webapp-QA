@@ -1,0 +1,15 @@
+
+CREATE TABLE votingQuery (
+  query_id      INT           AUTO_INCREMENT ,
+  query_text    TEXT          NOT NULL,
+  query_type    ENUM("open", "single", "Multiple") NOT NULL,
+  PRIMARY KEY(query_id)
+);
+
+CREATE TABLE votingOptions (
+  options_id      INT       AUTO_INCREMENT ,
+  query_id        INT       NOT NULL,
+  option_text     TEXT      NOT NULL,
+  PRIMARY KEY(options_id),
+  FOREIGN KEY(query_id) REFERENCES votingQuery(query_id) ON DELETE CASCADE
+);
