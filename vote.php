@@ -10,12 +10,13 @@
 </head>
 <body id="body">
 <?php require "./nav-bar-mod.php"?>
-<form>
+<form id="vote-form">
 <div class="row">
   <div class="col-md-12 " id="questions-container"></div>
 </div>
 <div class="btn-sbm-vote">
   <button id="submit-vote" class="btn btn-primary"
+    type="submit"
     style="background-color: #94d82d";
 >Submit Vote</button>
 </div>

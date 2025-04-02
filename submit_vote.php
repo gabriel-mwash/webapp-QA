@@ -1,44 +1,61 @@
 <?php
-session_start();
-require 'connection.php'; // Ensure you have a DB connection file
+require 'connection.php';
 
-// Check if the user has already voted
-if (isset($_SESSION['voted']) && $_SESSION['voted'] === true) {
-  echo json_encode(['error' => 'You have already voted.']);
-  exit;
-}
+header('Content-Type: application/json');
 
+// Check if user already voted
+// if (isset($_SESSION['voted'])) {
+//     echo json_encode(['error' => 'You have already voted.']);
+//     exit;
+// }
+
+// Validate request
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  echo json_encode(["error" => "Invalid request method."]);
-  exit;
+    echo json_encode(["error" => "Invalid request method."]);
+    exit;
 }
 
-if(!isset($_POST["vote"]) || empty($_POST["vote"])) {
-  echo json_encode(["eror" => "No votes submitted."]);
-  exit;
+if (!isset($_POST["vote"]) || empty($_POST["vote"])) {
+    echo json_encode(["error" => "No votes submitted."]);
+    exit;
 }
 
 $votes = $_POST["vote"];
 
 try {
-  foreach ($votes as $question_id => $response) {
-    if (is_array($response)) {
-      // Multiple choice: Insert each selected option
-      foreach ($response as $option_id) {
-        $stmt = $connection->prepare("INSERT INTO votes (query_id, option_id) VALUES (?, ?)");
-        $stmt->execute([$question_id, $option_id]);
-      }
-    } 
-    elseif (!empty($response)) {
-      // Single choice or open-ended answer
-      $stmt = $connection->prepare("INSERT INTO votes (query_id, option_text) VALUES (?, ?)");
-      $stmt->execute([$question_id, $response]);
+    // $connection->beginTransaction();
+    
+    foreach ($votes as $question_id => $response) {
+        $question_id = (int)$question_id;
+        
+        // Multiple choice (checkboxes)
+        if (is_array($response)) {
+            foreach ($response as $option_id) {
+                if (!empty($option_id)) {
+                    $stmt = $connection->prepare("INSERT INTO votes (query_id, options_id, response_text) VALUES (?, ?, NULL)");
+                    $stmt->execute([$question_id, (int)$option_id]);
+                }
+            }
+        }
+        // Open-ended text answer
+        elseif (!is_numeric($response)) {
+            $stmt = $connection->prepare("INSERT INTO votes (query_id, options_id, response_text) VALUES (?, NULL, ?)");
+            $stmt->execute([$question_id, trim($response)]);
+        }
+        // Single choice (radio buttons)
+        else {
+            $stmt = $connection->prepare("INSERT INTO votes (query_id, options_id, response_text) VALUES (?, ?, NULL)");
+            $stmt->execute([$question_id, (int)$response]);
+        }
     }
-  }
-  $_SESSION['voted'] = true;
-}
-catch (Exception $e) {
-  echo json_encode(["error" => "Database  error: " . $e->getMessage()]);
+    
+    $connection->commit();
+    $_SESSION['voted'] = true;
+    echo json_encode(["success" => "Vote submitted successfully!"]);
+    
+} catch (Exception $e) {
+    $connection->rollBack();
+    echo json_encode(["error" => "Database error: " . $e->getMessage()]);
 }
 
 exit;

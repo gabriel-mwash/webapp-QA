@@ -1,15 +1,7 @@
-
-CREATE TABLE votingQuery (
-  query_id      INT           AUTO_INCREMENT ,
-  query_text    TEXT          NOT NULL,
-  query_type    ENUM("open", "single", "Multiple") NOT NULL,
-  PRIMARY KEY(query_id)
-);
-
-CREATE TABLE votingOptions (
-  options_id      INT       AUTO_INCREMENT ,
-  query_id        INT       NOT NULL,
-  option_text     TEXT      NOT NULL,
-  PRIMARY KEY(options_id),
-  FOREIGN KEY(query_id) REFERENCES votingQuery(query_id) ON DELETE CASCADE
-);
+  SELECT v.query_id, q.text AS question_text, v.options_id, v.response_text, o.text AS option_text, COUNT(v.vote_id) AS vote_count
+  FROM votes v
+  LEFT JOIN votingQuery q ON v.query_id = q.query_id
+  LEFT JOIN votingOptions o ON v.options_id = o.options_id
+  GROUP BY v.query_id, v.options_id, v.response_text
+  ORDER BY v.query_id, vote_count DESC
+;
