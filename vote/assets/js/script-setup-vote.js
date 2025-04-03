@@ -195,3 +195,71 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
+// Add this event listener to your existing script
+document.getElementById("delaunch-vote").addEventListener("click", async function() {
+    if (!confirm("WARNING: This will clear ALL voting questions and results. Continue?")) {
+        return;
+    }
+
+    const feedback = document.getElementById("reset-feedback");
+    feedback.innerHTML = '<div class="spinner-border spinner-border-sm"></div> Resetting...';
+
+    try {
+        const response = await fetch("reset_voting_session.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include" // Important for session handling
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            feedback.innerHTML = '<div class="alert alert-success">Voting session reset successfully!</div>';
+            // Clear the UI
+            document.getElementById("questions-container").innerHTML = '';
+            document.getElementById("preview-questions").innerHTML = '<div class="alert alert-info">No questions added yet</div>';
+            // Create a fresh first question
+            createQuestionBlock(1);
+        } else {
+            throw new Error(result.error || "Reset failed");
+        }
+    } catch (error) {
+        feedback.innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
+        console.error("Reset error:", error);
+    }
+});
+
+document.getElementById("delaunch-vote").addEventListener("click", async function() {
+    if (!confirm("Clear ALL voting data and reset session?")) return;
+
+    const btn = this;
+    btn.disabled = true;
+    
+    try {
+        const response = await fetch("reset_voting_session.php", {
+            method: "POST",
+            credentials: "include"
+        });
+        
+        const result = await response.json();
+        
+        if (!result.success) {
+            throw new Error(result.error || "Reset failed");
+        }
+        
+        // Reset UI
+        document.getElementById("questions-container").innerHTML = '';
+        document.getElementById("preview-questions").innerHTML = 
+            '<div class="alert alert-info">Ready for new questions</div>';
+        
+        createQuestionBlock(1);
+        
+        alert("Session reset successfully!");
+    } catch (error) {
+        alert("Error: " + error.message);
+        console.error(error);
+    } finally {
+        btn.disabled = false;
+    }
+});
