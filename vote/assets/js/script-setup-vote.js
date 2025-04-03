@@ -119,15 +119,23 @@ document.getElementById("launch-vote").addEventListener("click", function () {
     headers: {"Content-Type" : "application/json" },
     body : JSON.stringify({ questions: questions })
   })
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("network response was not ok");
+    }
+    return response.json();
+  })
   .then(data => {
-    console.log("server response: ", data);
     if (data.success) {
       alert("questions saved successfully");
     }
     else {
-      alert("error saving questions: " + data.error);
+      alert("Error: " + (data.Error || "Unknown error occurred"));
     }
   })
+  .catch(error => {
+    console.error("Error: ", error);
+    alert("Failed to save questions. please check console for details");
+  });
 });
 

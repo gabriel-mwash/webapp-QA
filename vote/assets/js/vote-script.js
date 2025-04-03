@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // Fetch questions using AJAX (this part is fine)
   $.ajax({
-    url: './fetch-voting-queries.php',
+    url: 'fetch-voting-queries.php',
     method: 'GET',
     success: function(response) {
       var questions = JSON.parse(response);

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "./connection.php";
+require "../connection.php";
 
 // Check the connection
 if ($connection->connect_error) {

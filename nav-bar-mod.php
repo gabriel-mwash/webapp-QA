@@ -28,15 +28,15 @@
       <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                  <a class="nav-link" style="color:#ffffff;" href="index.php">
+                  <a class="nav-link" style="color:#ffffff;" href="../index.php">
                     <i class="fa fa-home"></i>HOME</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " style="color:#ffffff;" href="#">
-                <i class="fa fa-wpexplorer"></i>&nbsp;VOTE</a>
+                <a class="nav-link " style="color:#ffffff;" href="/vote/voting-setup.php">
+                <i class="fa fa-wpexplorer"></i>&nbsp;VOTE-SETUP</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " style="color:#ffffff;" href="#">
+                <a class="nav-link " style="color:#ffffff;" href="/vote/vote_stats.php">
                 <i class="fa fa-star-o"></i>&nbsp;VOTE STATS</a>
               </li>
               <li class="nav-item">

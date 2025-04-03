@@ -1,21 +1,18 @@
 body {
   background-color: #f8f9fa;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
-.container {
-  max-width: 700px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
 
 .setup-container, .preview-container {
+  width: 550px;
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  margin: 0px auto 20px;
 }
 
 .setup-container { 
@@ -26,6 +23,7 @@ body {
   .setup-container, .preview-container {
     width: 80vw;
   }
+}
 
 #preview-section {
   background: #fff9c4;
@@ -37,5 +35,5 @@ body {
 .button-group {
   display: flex;
   gap: 10px;
-  justify-content: left;
+  justify-content: center;
 }

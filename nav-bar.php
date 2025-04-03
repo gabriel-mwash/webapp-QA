@@ -32,15 +32,11 @@
                     <i class="fa fa-home"></i>HOME</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " style="color:#ffffff;" href="#">
+                <a class="nav-link " style="color:#ffffff;" href="vote/">
                 <i class="fa fa-wpexplorer"></i>&nbsp;VOTE</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " style="color:#ffffff;" href="#">
-                <i class="fa fa-star-o"></i>&nbsp;VOTE STATS</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " style="color:#ffffff;" href="#">
+                <a class="nav-link " style="color:#ffffff;" href="https://aylfkenya.org" target="_blank">
                 <i class="fa fa-sign-in"></i>&nbsp;AYLF-PROGRAMS</a>
               </li>
           </ul>

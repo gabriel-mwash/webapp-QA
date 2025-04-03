@@ -1,13 +1,13 @@
 <?php
-require 'connection.php';
+session_start();
+require '../connection.php';
 
 header('Content-Type: application/json');
 
-// Check if user already voted
-// if (isset($_SESSION['voted'])) {
-//     echo json_encode(['error' => 'You have already voted.']);
-//     exit;
-// }
+if (isset($_SESSION['voted'])) {
+    echo json_encode(['error' => 'You have already voted.']);
+    exit;
+}
 
 // Validate request
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

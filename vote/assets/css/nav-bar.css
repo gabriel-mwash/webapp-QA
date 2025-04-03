@@ -1,0 +1,105 @@
+.navigation-clean-button {
+  background: #fff;
+  /*padding-top: .75rem;*/
+  /*padding-bottom: .75rem;*/
+  color: #333;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 0;
+}
+
+@media (min-width:768px) {
+  .navigation-clean-button {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.navbar {
+  position: fixed;
+  height: 25vh;
+  width: 100%;
+  margin-bottom: 4rem;
+  opacity: 0.93;
+}
+
+.navigation-clean-button .navbar-brand {
+  font-weight: bold;
+  color: inherit;
+}
+
+.navigation-clean-button .navbar-brand:hover {
+  color: #222;
+}
+
+.navbar-toggler:hover, .navbar-toggler:focus {
+  color: gold;
+  background-color: forestgreen;
+}
+
+.navbar-toggler {
+  border-color: gold;
+}
+
+.navigation-clean-button .navbar-collapse, .navigation-clean-button .form-inline {
+  border-top-color: #ddd;
+}
+
+.navigation-clean-button .navbar-nav a.active, .navigation-clean-button .navbar-nav > .show > a {
+  background: none;
+  box-shadow: none;
+}
+
+.navigation-clean-button.navbar-light .navbar-nav a.active, .navigation-clean-button.navbar-light .navbar-nav a.active:focus, .navigation-clean-button.navbar-light .navbar-nav a.active:hover {
+  color: #8f8f8f;
+  box-shadow: none;
+  background: none;
+  pointer-events: none;
+}
+
+.navigation-clean-button.navbar .navbar-nav .nav-link {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.navigation-clean-button.navbar-light .navbar-nav .nav-link {
+  color: #465765;
+}
+
+.navigation-clean-button.navbar-light .navbar-nav .nav-link:focus, .navigation-clean-button.navbar-light .navbar-nav .nav-link:hover {
+  color: #37434d !important;
+  background-color: transparent;
+}
+
+.navbar-toggler {
+  background-color: #5c6f5c;
+}
+
+@media (max-width: 767px) {
+  .navbar-nav {
+    background-color: grey;
+    align-items: end;
+    opacity: 0.8;
+    border-radius: 4px;
+    margin: 0px ; padding: 0px;
+  }
+}
+
+.nav-item:hover {
+  display: inline-block;
+  text-decoration: underline;
+  text-shadow: 0px 0px 8px rgba(255, 215, 0, 0.8), 0px 0px 15px rgba(255, 223, 0, 0.6), 0px 0px 20px rgba(255, 230, 102, 0.5);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+
+
+.navigation-clean-button {
+  height: 80px;
+  color: #ffffff;
+  background: #212529;
+}
+
+

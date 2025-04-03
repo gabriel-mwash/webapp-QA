@@ -5,13 +5,14 @@
 </head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Q_and_A_webApp</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One&amp;display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fugaz+One&amp;display=swap">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/nav-bar.css">
-  <link rel="stylesheet" href="voting-setup.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
   <div>
@@ -27,20 +28,16 @@
       <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                  <a class="nav-link" style="color:#ffffff;" href="index.php">
+                  <a class="nav-link" style="color:#ffffff;" href="../">
                     <i class="fa fa-home"></i>HOME</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " style="color:#ffffff;" href="#">
-                <i class="fa fa-wpexplorer"></i>&nbsp;VOTE-SETUP</a>
+                <a class="nav-link " style="color:#ffffff;" href="index.php">
+                <i class="fa fa-wpexplorer"></i>&nbsp;VOTE</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " style="color:#ffffff;" href="#">
-                <i class="fa fa-star-o"></i>&nbsp;VOTE STATS</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="clear-questions" style="color:#ffffff;" href="#">
-                <i class="fa fa-sign-in"></i>&nbsp;CLEAR-QUESTIONS</a>
+                <a class="nav-link " style="color:#ffffff;" href="https://aylfkenya.org" target="_blank">
+                <i class="fa fa-sign-in"></i>&nbsp;AYLF-PROGRAMS</a>
               </li>
           </ul>
       </div>

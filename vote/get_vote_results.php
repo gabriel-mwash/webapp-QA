@@ -1,7 +1,9 @@
 <?php
-require 'connection.php';
-
+session_start();
+require '../connection.php';
 header('Content-Type: application/json');
+
+
 
 $query = "
   SELECT 

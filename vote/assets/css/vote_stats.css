@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+h2 {
+  padding: 7rem 0 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.charts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.chart-container {
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  max-width: 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-wrapper {
+  width: 100%;
+  flex-grow: 1;
+  position: relative;
+  min-height: 300px;
+}
+
+.question-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  height: auto;
+}
+
+.response-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.response-list li {
+  background-color: #FFD700;
+  color: black;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: left;
+}
+
+@media (max-width: 576px) and (min-width: 270px) {
+  .chart-container {
+    width: 85vw;
+  }
+}
+
