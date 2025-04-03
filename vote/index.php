@@ -15,7 +15,7 @@
   <div class="col-md-12 " id="questions-container"></div>
 </div>
 <div class="btn-sbm-vote">
-  <button id="submit-vote" class="btn btn-primary"
+  <button id="submit-vote" class="btn btn-primary fade-in"
     type="submit"
     style="background-color: #94d82d";
 >Submit Vote</button>

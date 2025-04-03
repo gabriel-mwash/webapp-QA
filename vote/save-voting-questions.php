@@ -1,30 +1,44 @@
 <?php
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *"); // For development only
 
-require "../connection.php";
-
-// Initialize response array
+// Initialize response
 $response = ["success" => false, "error" => ""];
 
 try {
-    // Verify connection
-    if ($connection->connect_error) {
-        throw new Exception("Database connection failed");
+    // Verify request method
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        throw new Exception("Invalid request method");
     }
 
     // Get and validate input
     $input = json_decode(file_get_contents("php://input"), true);
-    if (!$input || !isset($input["questions"])) {
-        throw new Exception("Invalid data received");
+    if ($input === null) {
+        throw new Exception("Invalid JSON input");
+    }
+    
+    if (!isset($input["questions"]) || !is_array($input["questions"])) {
+        throw new Exception("No questions provided");
+    }
+
+    // Database connection
+    require __DIR__ . "/../connection.php";
+    
+    if ($connection->connect_error) {
+        throw new Exception("Database connection failed: " . $connection->connect_error);
     }
 
     // Begin transaction
     $connection->begin_transaction();
 
     foreach ($input["questions"] as $question) {
-        // Validate question data
+        // Validate question
         if (empty($question["question_text"])) {
             throw new Exception("Question text cannot be empty");
+        }
+        
+        if (!in_array($question["question_type"], ["Open", "Single", "Multiple"])) {
+            throw new Exception("Invalid question type");
         }
 
         // Insert question
@@ -41,13 +55,12 @@ try {
         $queryId = $connection->insert_id;
 
         // Insert options if needed
-        if ($question["question_type"] !== "Open" && !empty($question["options"])) {
+        if (($question["question_type"] === "Single" || $question["question_type"] === "Multiple") && !empty($question["options"])) {
             foreach ($question["options"] as $option) {
-                if (empty(trim($option))) continue;
+                $option = trim($option);
+                if (empty($option)) continue;
                 
-                $stmtOption = $connection->prepare(
-                    "INSERT INTO votingOptions (query_id, option_text) VALUES (?, ?)"
-                );
+                $stmtOption = $connection->prepare("INSERT INTO votingOptions (query_id, option_text) VALUES (?, ?)");
                 if (!$stmtOption) {
                     throw new Exception("Prepare failed: " . $connection->error);
                 }
@@ -66,13 +79,13 @@ try {
 
 } catch (Exception $e) {
     // Rollback on error
-    if (isset($connection) && method_exists($connection, "rollback")) {
+    if (isset($connection) && $connection instanceof mysqli && $connection->thread_id) {
         $connection->rollback();
     }
     $response["error"] = $e->getMessage();
 } finally {
     // Close connection
-    if (isset($connection)) {
+    if (isset($connection) && $connection instanceof mysqli && $connection->thread_id) {
         $connection->close();
     }
 }
@@ -80,41 +93,3 @@ try {
 // Send JSON response
 echo json_encode($response);
 exit;
-/*
-header("Content-Type: application/json");
-
-require "../connection.php";
-
-
-if ($connection->connect_error) {
-  echo json_encode(["success" => false, "error" => "Database connection failed"]);
-  exit;
-}
-
-$data = json_decode(file_get_contents("php://input"), true);
-if (!$data || !isset($data["questions"])) {
-  echo json_encode(["success" => false, "error" => "Invalid data"]);
-  exit;
-}
-
-foreach ($data["questions"] as $question) {
-  $stmt = $connection->prepare("INSERT INTO votingQuery (query_text, query_type) VALUES (?, ?)");
-  $stmt->bind_param("ss", $question["question_text"], $question["question_type"]);
-  $stmt->execute();
-  $queryId = $stmt->insert_id;
-  
-  if ($question["question_type"] !== "Open") {
-    foreach ($question["options"] as $option) {
-      $stmtOption = $connection->prepare
-        ("INSERT INTO votingOptions (query_id, option_text) VALUES (?, ?)");
-      $stmtOption->bind_param("is", $queryId, $option);
-      $stmtOption->execute();
-    }
-  }
-}
-
-echo json_encode(["success" => true]);
-$connection->close();
-*/
-?>
-

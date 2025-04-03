@@ -38,10 +38,13 @@ if ($result->num_rows > 0) {
       // Add the question data to the questions array
       $questions[] = $question_data;
   }
-} else {
+} 
+/*
+else {
     echo json_encode(['error' => 'No questions found']);
     exit;
 }
+ */
 
 // Close connection
 $connection->close();

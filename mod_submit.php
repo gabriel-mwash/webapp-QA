@@ -2,7 +2,7 @@
 
 session_start();
 
-include("connection.php");
+require "connection.php";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
   }
   else {
-    echo "error preparing staement " . $connection->error;
+    echo "error preparing statement " . $connection->error;
   }
 
   if ($code == $code_db) {

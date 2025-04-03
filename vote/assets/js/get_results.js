@@ -8,8 +8,8 @@ function fetchVoteResults() {
     .then(response => response.json())
     .then(data => {
       // Separate open-ended from other questions
-      const chartQuestions = data.filter(q => q.query_type !== 'open');
-      const openQuestions = data.filter(q => q.query_type === 'open');
+      const chartQuestions = data.filter(q => q.query_type !== 'Open');
+      const openQuestions = data.filter(q => q.query_type === 'Open');
       
       // Clear existing open-ended containers on each refresh
       openEndedContainers.forEach(container => {
@@ -92,7 +92,7 @@ function renderCharts(responseData, isOpenEnded) {
     if (chartWrapper) {
       chartWrapper.innerHTML = '';
 
-      if (!isOpenEnded && (data.query_type === 'Multiple' || data.query_type === 'single')) {
+      if (!isOpenEnded && (data.query_type === 'Multiple' || data.query_type === 'Single')) {
         const canvas = document.createElement('canvas');
         chartWrapper.appendChild(canvas);
 

@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="./assets/css/vote_stats.css">
 </head>
-<body>
+ <body id="body">
 <?php require "../nav-bar-mod.php";?>
 
 <h2>Voting Results</h2>

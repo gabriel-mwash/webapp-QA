@@ -10,11 +10,20 @@ $(document).ready(function() {
         alert(questions.error);
         return;
       }
+      if (questions.length === 0) {
+        $('#questions-container').html(
+          '<div class="no-question-message fade-in">' +
+          '<h3>No voting questions available yet</h3>' +
+          '<p>Please check back later or contact the admin</p>' +
+          '</div>'
+        );
+        return;
+      }
       questions.forEach(function(question) {
         var questionHtml = '<div class="question-pad">';
         questionHtml += '<h3>' + question.text + '</h3>';
 
-        if (question.type === 'single') {
+        if (question.type === 'Single') {
           question.options.forEach(function(option) {
             questionHtml += '<label><input type="radio" name="vote[' 
             + question.id + ']" value="' + option.id + '"> ' + option.text + '</label>';
@@ -28,7 +37,7 @@ $(document).ready(function() {
               + option.text + '</label>';
           });
         } 
-        else if (question.type === 'open') {
+        else if (question.type === 'Open') {
           questionHtml += 
             '<textarea name="vote[' +
             question.id + ']" placeholder="Your answer..."></textarea>';

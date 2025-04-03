@@ -1,12 +1,18 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Remove .php extension from URLs
+    # EXCLUDE API/POST REQUESTS FROM REWRITING
+    RewriteCond %{REQUEST_URI} !^/vote/save-voting-questions\.php [NC]
+    RewriteCond %{REQUEST_METHOD} !POST [OR]
+    RewriteCond %{REQUEST_URI} ^/vote/ [NC]
+    
+    # Remove .php extension (only for GET requests to non-API endpoints)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}\.php -f
     RewriteRule ^(.*)$ $1.php [L]
     
-    # Redirect .php URLs to extensionless versions
+    # Redirect .php URLs to extensionless (GET only)
+    RewriteCond %{REQUEST_METHOD} GET
     RewriteCond %{THE_REQUEST} \s/+(.*?/)?(?:index)?(.*?)\.php[\s?] [NC]
     RewriteRule ^ /%1%2 [R=301,L,NE]
 </IfModule>

@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Voting Setup</title>
   <link rel="stylesheet" href="assets/css/voting-setup.css">
-<body>
+<body id="body">
 <?php require "../nav-bar-mod.php"; ?>
   <div class=" setup-container">
     <h2 class="text-center">Voting Setup</h2>
