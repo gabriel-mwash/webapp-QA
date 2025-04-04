@@ -20,7 +20,7 @@ $(document).ready(function() {
         return;
       }
       questions.forEach(function(question) {
-        var questionHtml = '<div class="question-pad">';
+        var questionHtml = '<div class="question-pad fade-in">';
         questionHtml += '<h3>' + question.text + '</h3>';
 
         if (question.type === 'Single') {

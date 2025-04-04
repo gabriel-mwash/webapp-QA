@@ -1,4 +1,4 @@
-body {
+#body {
   font-family: Arial, sans-serif;
   background-color: #fdf6d3;
 }
@@ -7,6 +7,7 @@ h2 {
   padding: 7rem 0 1rem;
   text-align: center;
   color: #333;
+  background-color: #fdf6d3;
 }
 
 .charts-wrapper {
@@ -14,6 +15,7 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  background-color: #fdf6d3;
 }
 
 .chart-container {

@@ -22,6 +22,11 @@ if (!isset($_SESSION["moderator_name"]) || $_SESSION["moderator_logged_in"] !== 
     <button class="btn btn-primary btn-lg fw-bolder check-out-btn" id="LoadMore">Load more</button>
     <a class="btn btn-primary btn-lg fw-bolder check-out-btn fade-in" role="button" id="oldLink" href="#refresh" style="/*display: none;*/">to top of page</a>
   </div>
+  <div class="clear">
+    <a class="btn btn-danger btn-lg fw-bolder check-out-btn fade-in" role="button" id="clear-questions" href="#">
+      <i class="fa fa-trash"></i>
+      clear</a>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/bs-init.js"></script>
   <script src="assets/js/scripts.js"></script>

@@ -1,31 +1,62 @@
-/*
+CREATE DATABASE webapp;
+USE webapp;
+CREATE USER "aylfKenya"@"localhost" IDENTIFIED BY "aylfkenya254";
+GRANT ALL PRIVILEGES ON *.* TO "aylfKenya"@"localhost" WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+SELECT Host, User FROM mysql.user;
+-- DROP USER "aylfKenya"@"localhost";
+
 CREATE TABLE questions (
-  question_id     INT           NOT NULL,
-  question        TEXT          NOT NULL,
-  name            VARCHAR(100)  NOT NULL,
-  institute       VARCHAR(100)  NOT NULL,
-  submitted_at    TIMESTAMP     DEFAULT CURRENT_TIME,
+  question_id         INT             AUTO_INCREMENT,
+  question            TEXT            NOT NULL,
+  name                VARCHAR(100)    NOT NULL,
+  institute           VARCHAR(100)    NOT NULL,
+  submitted_at        TIMESTAMP       DEFAULT CURRENT_TIME,
   PRIMARY KEY(question_id)
 );
 
-
-
 CREATE TABLE moderator (
-  mod_id      INT           AUTO_INCREMENT,
-  mod_name    VARCHAR(20),
-  PRIMARY KEY (mod_id)
+  mod_id              INT             AUTO_INCREMENT,
+  mod_name            VARCHAR(20),
+  PRIMARY KEY(mod_id)
 );
 
-
 CREATE TABLE code (
-  code_id    INT         AUTO_INCREMENT,
-  code      VARCHAR(16) NOT NULL,
+  code_id             INT             AUTO_INCREMENT,
+  code                VARCHAR(16)     NOT NULL,
   PRIMARY KEY (code_id)
 );
 
+INSERT INTO code (code) VALUES ("AYLFKENYA_QA");
 
-*/ 
+CREATE TABLE votingQuery (
+  query_id      INT                                     AUTO_INCREMENT ,
+  query_text    TEXT                                    NOT NULL,
+  query_type    ENUM("Open", "Single", "Multiple")      NOT NULL,
+  PRIMARY KEY(query_id)
+);
 
+CREATE TABLE votingOptions (
+  options_id      INT       AUTO_INCREMENT ,
+  query_id        INT       NOT NULL,
+  option_text     TEXT      NOT NULL,
+  PRIMARY KEY(options_id),
+  FOREIGN KEY(query_id) REFERENCES votingQuery(query_id) ON DELETE CASCADE
+);
+
+CREATE TABLE votes (
+  vote_id           INT     AUTO_INCREMENT,
+  query_id          INT     NOT NULL,
+  options_id        INT     DEFAULT NULL,
+  response_text     TEXT    DEFAULT NULL,
+  PRIMARY KEY(vote_id),
+  FOREIGN KEY(query_id)   REFERENCES votingQuery(query_id)      ON DELETE CASCADE,
+  FOREIGN KEY(options_id) REFERENCES votingOptions(options_id)  ON DELETE CASCADE
+);
+
+
+-- test data 
 INSERT INTO questions (question, name, institute) VALUES
 ('What is the role of youth in governance?', 'John Doe', 'University of Nairobi'),
 ('How can we improve mental health awareness in schools?', 'Jane Smith', 'Kenyatta University'),
@@ -37,27 +68,3 @@ INSERT INTO questions (question, name, institute) VALUES
 ('How can we promote digital literacy among young people?', 'Susan Achieng', 'USIU'),
 ('What challenges do young women face in leadership, and how can we address them?', 'Brenda Njeri', 'Egerton University'),
 ('Should university education be made free for all?', 'Daniel Okello', 'Maseno University');
-
-
-/*
-DELETE FROM questions;
-SELECT * FROM questions;
-
-DELETE FROM questions;
-
-SELECT * FROM questions;
-*/
-
-
-
-
-/*
-ALTER TABLE code
-MODIFY COLUMN code VARCHAR(16);
-
-INSERT INTO code (code) VALUES ("AYLFKENYA_QA");
-
-SELECT * FROM code;
-*/ 
-
-

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/nav-bar.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -29,15 +30,15 @@
           <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                   <a class="nav-link" style="color:#ffffff;" href="index.php">
-                    <i class="fa fa-home"></i>HOME</a>
+                    <i class="fa fa-home"></i>  HOME</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " style="color:#ffffff;" href="vote/">
-                <i class="fa fa-wpexplorer"></i>&nbsp;VOTE</a>
+                <i class="bi bi-check2-square"></i>&nbsp; VOTE</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " style="color:#ffffff;" href="https://aylfkenya.org" target="_blank">
-                <i class="fa fa-sign-in"></i>&nbsp;AYLF-PROGRAMS</a>
+                <i class="fa fa-sign-in"></i>&nbsp; AYLF-PROGRAMS</a>
               </li>
           </ul>
       </div>
