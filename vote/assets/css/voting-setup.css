@@ -21,7 +21,7 @@
 
 @media (min-width: 250px) and (max-width: 560px) {
   .setup-container, .preview-container {
-    width: 80vw;
+    width: 90vw;
   }
 }
 

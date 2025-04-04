@@ -26,8 +26,8 @@ if (!isset($_SESSION["moderator_name"]) || $_SESSION["moderator_logged_in"] !== 
       <div id="preview-questions"></div>
     </div>
     <div class="button-group mt-3">
-      <button id="launch-vote" class="btn btn-primary w-100 mb-3 btn-success">🚀 Launch Vote</button>
-      <button id="delaunch-vote" class="btn btn-primary w-100 mb-3 btn-danger"> deLaunch Vote</button>
+      <button id="launch" class="btn btn-primary w-100 mb-3 btn-success">🚀 Launch</button>
+      <button id="delaunch" class="btn btn-primary w-100 mb-3 btn-danger"> deLaunch</button>
     </div>
   </div>
   <div id="reset-feedback" class="mt-2"></div> 

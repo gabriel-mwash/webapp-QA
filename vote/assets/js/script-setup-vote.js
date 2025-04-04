@@ -71,7 +71,7 @@ function updatePreview() {
 document.addEventListener("DOMContentLoaded", function() {
   const questionsContainer = document.getElementById("questions-container");
   const addQuestionBtn = document.getElementById("add-question");
-  const launchVoteBtn = document.getElementById("launch-vote");
+  const launchVoteBtn = document.getElementById("launch");
 
   // Initialize with one question
   createQuestionBlock(1);
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  document.getElementById("delaunch-vote").addEventListener("click", async function() {
+  document.getElementById("delaunch").addEventListener("click", async function() {
     if (!confirm("WARNING: This will clear ALL voting questions and results. Continue?")) {
         return;
     }
