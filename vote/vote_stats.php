@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION["moderator_name"]) || $_SESSION["moderator_logged_in"] !== true) {
+  header("Location:../moderator.php");
+  exit(); 
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

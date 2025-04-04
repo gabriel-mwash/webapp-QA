@@ -7,6 +7,16 @@ function fetchVoteResults() {
   fetch('get_vote_results.php')
     .then(response => response.json())
     .then(data => {
+      if (data.length === 0) {
+        const chartsContainer = document.getElementById("charts");
+        chartsContainer.innerHTML = `
+          <div class="no-votes-message">
+          <i class=bi bi-info-circle"></i>
+          No votes have been recorded yet. Refresh page !
+          </div>
+          `;
+        return;
+      }
       // Separate open-ended from other questions
       const chartQuestions = data.filter(q => q.query_type !== 'Open');
       const openQuestions = data.filter(q => q.query_type === 'Open');
@@ -200,7 +210,7 @@ function renderCharts(responseData, isOpenEnded) {
 }
 
 function startAutoRefresh() {
-  updateInterval = setInterval(fetchVoteResults, 5000);
+  updateInterval = setInterval(fetchVoteResults, 20000);
 }
 
 window.addEventListener('DOMContentLoaded', fetchVoteResults);

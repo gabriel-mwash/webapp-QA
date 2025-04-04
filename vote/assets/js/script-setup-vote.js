@@ -1,78 +1,80 @@
+// Define the function at the TOP LEVEL (outside DOMContentLoaded)
+function createQuestionBlock(index) {
+  const questionDiv = document.createElement("div");
+  questionDiv.classList.add("mb-3", "question-block", "p-3", "border");
+  questionDiv.innerHTML = `
+    <label class="form-label">Question ${index}:</label>
+    <input type="text" class="form-control question-input mb-2" placeholder="Type your question here..." required>
+    <select class="form-select question-type mb-2">
+      <option value="Open">Open-ended</option>
+      <option value="Single">Single Choice</option>
+      <option value="Multiple">Multiple Choice</option>
+    </select>
+    <div class="options-container mb-2"></div>
+    <div class="button-group">
+      <button class="btn btn-sm btn-success add-option" style="display:none;">+ Add Option</button>
+      <button class="btn btn-sm btn-danger delete-question ms-2">Delete Question</button>
+    </div>
+  `;
+  document.getElementById("questions-container").appendChild(questionDiv);
+  updatePreview();
+  return questionDiv;
+}
+
+function updatePreview() {
+  const previewQuestions = document.getElementById("preview-questions");
+  previewQuestions.innerHTML = "";
+  const questions = document.querySelectorAll(".question-block");
+  
+  if (questions.length === 0) {
+    previewQuestions.innerHTML = '<div class="alert alert-info">No questions added yet</div>';
+    return;
+  }
+
+  questions.forEach((block, idx) => {
+    const questionText = block.querySelector(".question-input").value.trim() || `Question ${idx + 1}`;
+    const type = block.querySelector(".question-type").value;
+    const previewDiv = document.createElement("div");
+    previewDiv.classList.add("mb-3", "p-3", "border");
+    
+    previewDiv.innerHTML = `
+      <p class="fw-bold mb-2">${questionText} <span class="badge bg-secondary">${type}</span></p>
+    `;
+    
+    if (type === "Single" || type === "Multiple") {
+      const optionsDiv = document.createElement("div");
+      const options = block.querySelectorAll(".option-input");
+      
+      if (options.length === 0) {
+        optionsDiv.innerHTML = '<div class="text-danger">No options added</div>';
+      } else {
+        options.forEach(option => {
+          const inputType = type === "Single" ? "radio" : "checkbox";
+          optionsDiv.innerHTML += `
+            <div class="form-check">
+              <input class="form-check-input" type="${inputType}" name="question${idx}">
+              <label class="form-check-label">${option.value.trim() || "Empty option"}</label>
+            </div>
+          `;
+        });
+      }
+      previewDiv.appendChild(optionsDiv);
+    } else {
+      previewDiv.innerHTML += `
+        <textarea class="form-control" rows="2" placeholder="Your response..." disabled></textarea>
+      `;
+    }
+    previewQuestions.appendChild(previewDiv);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   const questionsContainer = document.getElementById("questions-container");
   const addQuestionBtn = document.getElementById("add-question");
-  const previewQuestions = document.getElementById("preview-questions");
   const launchVoteBtn = document.getElementById("launch-vote");
 
   // Initialize with one question
   createQuestionBlock(1);
-
-  function createQuestionBlock(index) {
-    const questionDiv = document.createElement("div");
-    questionDiv.classList.add("mb-3", "question-block", "p-3", "border");
-    questionDiv.innerHTML = `
-      <label class="form-label">Question ${index}:</label>
-      <input type="text" class="form-control question-input mb-2" placeholder="Type your question here..." required>
-      <select class="form-select question-type mb-2">
-        <option value="Open">Open-ended</option>
-        <option value="Single">Single Choice</option>
-        <option value="Multiple">Multiple Choice</option>
-      </select>
-      <div class="options-container mb-2"></div>
-      <div class="button-group">
-        <button class="btn btn-sm btn-success add-option" style="display:none;">+ Add Option</button>
-        <button class="btn btn-sm btn-danger delete-question ms-2">Delete Question</button>
-      </div>
-    `;
-    questionsContainer.appendChild(questionDiv);
-    updatePreview();
-  }
-
-  function updatePreview() {
-    previewQuestions.innerHTML = "";
-    const questions = document.querySelectorAll(".question-block");
-    
-    if (questions.length === 0) {
-      previewQuestions.innerHTML = '<div class="alert alert-info">No questions added yet</div>';
-      return;
-    }
-
-    questions.forEach((block, idx) => {
-      const questionText = block.querySelector(".question-input").value.trim() || `Question ${idx + 1}`;
-      const type = block.querySelector(".question-type").value;
-      const previewDiv = document.createElement("div");
-      previewDiv.classList.add("mb-3", "p-3", "border");
-      
-      previewDiv.innerHTML = `
-        <p class="fw-bold mb-2">${questionText} <span class="badge bg-secondary">${type}</span></p>
-      `;
-      
-      if (type === "Single" || type === "Multiple") {
-        const optionsDiv = document.createElement("div");
-        const options = block.querySelectorAll(".option-input");
-        
-        if (options.length === 0) {
-          optionsDiv.innerHTML = '<div class="text-danger">No options added</div>';
-        } else {
-          options.forEach(option => {
-            const inputType = type === "Single" ? "radio" : "checkbox";
-            optionsDiv.innerHTML += `
-              <div class="form-check">
-                <input class="form-check-input" type="${inputType}" name="question${idx}">
-                <label class="form-check-label">${option.value.trim() || "Empty option"}</label>
-              </div>
-            `;
-          });
-        }
-        previewDiv.appendChild(optionsDiv);
-      } else {
-        previewDiv.innerHTML += `
-          <textarea class="form-control" rows="2" placeholder="Your response..." disabled></textarea>
-        `;
-      }
-      previewQuestions.appendChild(previewDiv);
-    });
-  }
 
   addQuestionBtn.addEventListener("click", function() {
     createQuestionBlock(document.querySelectorAll(".question-block").length + 1);
@@ -130,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [];
     let isValid = true;
     
-    // Validate all questions
     document.querySelectorAll(".question-block").forEach((block, index) => {
       const questionText = block.querySelector(".question-input").value.trim();
       const questionType = block.querySelector(".question-type").value;
@@ -183,9 +184,6 @@ document.addEventListener("DOMContentLoaded", function() {
       
       if (result.success) {
         alert("Voting questions saved successfully!");
-        // Optional: Reset form or redirect
-        // questionsContainer.innerHTML = '';
-        // createQuestionBlock(1);
       } else {
         throw new Error(result.error || "Failed to save questions");
       }
@@ -194,10 +192,8 @@ document.addEventListener("DOMContentLoaded", function() {
       alert("Error: " + error.message);
     }
   });
-});
 
-// Add this event listener to your existing script
-document.getElementById("delaunch-vote").addEventListener("click", async function() {
+  document.getElementById("delaunch-vote").addEventListener("click", async function() {
     if (!confirm("WARNING: This will clear ALL voting questions and results. Continue?")) {
         return;
     }
@@ -209,17 +205,15 @@ document.getElementById("delaunch-vote").addEventListener("click", async functio
         const response = await fetch("reset_voting_session.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            credentials: "include" // Important for session handling
+            credentials: "include"
         });
 
         const result = await response.json();
 
         if (result.success) {
             feedback.innerHTML = '<div class="alert alert-success">Voting session reset successfully!</div>';
-            // Clear the UI
             document.getElementById("questions-container").innerHTML = '';
             document.getElementById("preview-questions").innerHTML = '<div class="alert alert-info">No questions added yet</div>';
-            // Create a fresh first question
             createQuestionBlock(1);
         } else {
             throw new Error(result.error || "Reset failed");
@@ -228,38 +222,5 @@ document.getElementById("delaunch-vote").addEventListener("click", async functio
         feedback.innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
         console.error("Reset error:", error);
     }
-});
-
-document.getElementById("delaunch-vote").addEventListener("click", async function() {
-    if (!confirm("Clear ALL voting data and reset session?")) return;
-
-    const btn = this;
-    btn.disabled = true;
-    
-    try {
-        const response = await fetch("reset_voting_session.php", {
-            method: "POST",
-            credentials: "include"
-        });
-        
-        const result = await response.json();
-        
-        if (!result.success) {
-            throw new Error(result.error || "Reset failed");
-        }
-        
-        // Reset UI
-        document.getElementById("questions-container").innerHTML = '';
-        document.getElementById("preview-questions").innerHTML = 
-            '<div class="alert alert-info">Ready for new questions</div>';
-        
-        createQuestionBlock(1);
-        
-        alert("Session reset successfully!");
-    } catch (error) {
-        alert("Error: " + error.message);
-        console.error(error);
-    } finally {
-        btn.disabled = false;
-    }
+  });
 });

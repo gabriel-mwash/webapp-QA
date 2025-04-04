@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["moderator_name"]) || $_SESSION["moderator_logged_in"] !== true) {
+  header("Location:../moderator.php");
+  exit(); 
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -19,8 +27,10 @@
     </div>
     <div class="button-group mt-3">
       <button id="launch-vote" class="btn btn-primary w-100 mb-3 btn-success">🚀 Launch Vote</button>
+      <button id="delaunch-vote" class="btn btn-primary w-100 mb-3 btn-danger"> deLaunch Vote</button>
     </div>
   </div>
+  <div id="reset-feedback" class="mt-2"></div> 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="./assets/js/script-setup-vote.js"></script>
 </body>

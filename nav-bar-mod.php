@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/nav-bar.css">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
   <div>
@@ -28,20 +29,20 @@
       <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                  <a class="nav-link" style="color:#ffffff;" href="../index.php">
-                    <i class="fa fa-home"></i>HOME</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link " style="color:#ffffff;" href="/vote/voting-setup.php">
-                <i class="fa fa-wpexplorer"></i>&nbsp;VOTE-SETUP</a>
+                <i class="bi bi-rocket-takeoff"></i>&nbsp; LAUNCH VOTE</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " style="color:#ffffff;" href="/vote/vote_stats.php">
-                <i class="fa fa-star-o"></i>&nbsp;VOTE STATS</a>
+                <i class="fa fa-star-o"></i>&nbsp; VOTE STATS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color:#ffffff;" href="../questions.php">
+                <i class="fa fa-question-circle"></i>&nbsp; QUESTIONS</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="clear-questions" style="color:#ffffff;" href="#">
-                <i class="fa fa-sign-in"></i>&nbsp;CLEAR-QUESTIONS</a>
+                <i class="fa fa-trash"></i>&nbsp; CLEAR-QUESTIONS</a>
               </li>
           </ul>
       </div>

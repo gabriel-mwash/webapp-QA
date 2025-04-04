@@ -9,14 +9,14 @@
 .setup-container, .preview-container {
   width: 550px;
   background: white;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   margin: 0px auto 20px;
 }
 
 .setup-container { 
-  margin-top: 8rem;
+  margin-top: 6rem;
 }
 
 @media (min-width: 250px) and (max-width: 560px) {
@@ -37,3 +37,23 @@
   gap: 10px;
   justify-content: center;
 }
+
+.form-label {
+  font-weight: 600;
+}
+
+#reset-voting {
+  transition: all 0.3s ease;
+ }
+
+#reset-voting:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+ }
+
+#reset-feedback {
+  display: flex;
+  justify-content: center;
+  min-height: 50px;
+}
+
