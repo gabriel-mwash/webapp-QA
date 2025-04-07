@@ -76,7 +76,18 @@ $(document).ready(function() {
                     // Optional: Reset form after success
                     $("#vote-form")[0].reset();
                 } else if (jsonResponse.error) {
-                    alert("Error: " + jsonResponse.error);
+                    if (jsonResponse.error.includes("foreign key constraint") || jsonResponse.error.includes("query_id")) {
+                      $("#questions-container").html(
+                        '<div class="no-question-message fade-in">' +
+                        '<h3>Voting closed</h3>' +
+                        '<p> the admin has ended this voting session. ' +
+                        'Your vote cannot be processed</p>' +
+                        '</div>'
+                      );
+                    }
+                      else {
+                        alert("Error: " + jsonResponse.error);
+                      }
                 }
             } catch (e) {
                 console.error("Failed to parse JSON:", e, "Response:", response);

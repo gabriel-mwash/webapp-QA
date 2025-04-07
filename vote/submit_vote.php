@@ -4,9 +4,12 @@ require '../connection.php';
 
 header('Content-Type: application/json');
 
-if (isset($_SESSION['voted'])) {
-    echo json_encode(['error' => 'You have already voted.']);
-    exit;
+$userLastVoteTime = $_SESSION["last_vote_time"] ?? 0;
+$globalResetTime = (int) @file_get_contents(__DIR__ . "/system_reset_time.txt");
+
+if ($userLastVoteTime >= $globalResetTime) {
+  echo json_encode(["error" => "You have already voted. "]);
+  exit;
 }
 
 // Validate request
@@ -51,6 +54,7 @@ try {
     
     $connection->commit();
     $_SESSION['voted'] = true;
+    $_SESSION["last_vote_time"] = time();
     echo json_encode(["success" => "Vote submitted successfully!"]);
     
 } catch (Exception $e) {

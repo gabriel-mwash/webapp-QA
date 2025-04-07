@@ -6,6 +6,11 @@ $response = ["success" => false];
 
 // Admin verification
 session_start();
+$resetTime = time();
+file_put_contents(__DIR__ . "/system_reset_time.txt", $resetTime);
+
+$_SESSION["system_reset_time"] = $resetTime;
+
 if (!isset($_SESSION['moderator_logged_in']) || !$_SESSION['moderator_logged_in']) {
     $response["error"] = "Admin access required";
     echo json_encode($response);
