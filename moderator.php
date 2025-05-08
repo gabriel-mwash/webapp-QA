@@ -35,7 +35,7 @@ if(isset($_SESSION["error"])) {
       <div class="cod-name">
         <label class="form-label cod-label" >code&nbsp;</label>
         <input class="form-control name-campus-fields pe-0 cod-input" 
-          name="code" type="text" >
+          name="code" type="password" >
       </div>
       <a class="btn btn-lg active fw-bolder mod-login-btn" role="button" 
         onclick="document.querySelector('.moderator-form').submit(); return false;"
